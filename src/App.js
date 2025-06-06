@@ -13,7 +13,6 @@ import AboutComponent from "./components/AboutComponent";
 import Error from './components/Error';
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
-import Test from "./components/Test";
 
 const AppLayout = () => {
     return (
