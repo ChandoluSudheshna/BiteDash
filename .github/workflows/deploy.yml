@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - feature/feature-initial  # Change this if your default branch is different
+      - feature/feature-initial  # your branch that triggers the deployment
 
 jobs:
   build:
@@ -23,4 +23,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Change this to your build output folder
+          publish_branch: gh-pages   # this is key!
+          publish_dir: ./dist
