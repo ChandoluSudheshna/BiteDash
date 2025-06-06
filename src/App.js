@@ -16,12 +16,17 @@ import RestaurantMenu from "./components/RestaurantMenu";
 
 const AppLayout = () => {
     return (
-        <>
-            {/* <Obj.HeaderComponent /> */}
+        <div>
             <HeaderComponent/>  
             <Outlet/>
             <FooterComponent/>
-        </>
+        </div>
+        // <>
+        //     {/* <Obj.HeaderComponent /> */}
+        //     <HeaderComponent/>  
+        //     <Outlet/>
+        //     <FooterComponent/>
+        // </>
     );
 };
 
