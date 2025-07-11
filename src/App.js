@@ -16,17 +16,12 @@ import RestaurantMenu from "./components/RestaurantMenu";
 
 const AppLayout = () => {
     return (
-        <div>
+        <>
+            {/* <Obj.HeaderComponent /> */}
             <HeaderComponent/>  
             <Outlet/>
             <FooterComponent/>
-        </div>
-        // <>
-        //     {/* <Obj.HeaderComponent /> */}
-        //     <HeaderComponent/>  
-        //     <Outlet/>
-        //     <FooterComponent/>
-        // </>
+        </>
     );
 };
 
@@ -52,7 +47,7 @@ const appRouter = createBrowserRouter([
                 errorElement: <Error/>,
             },
             {
-                path: "restaurant/:id",
+                path: "restaurant/:resid",
                 element: <RestaurantMenu/>,
             }
         ]

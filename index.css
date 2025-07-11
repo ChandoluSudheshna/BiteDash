@@ -81,6 +81,7 @@ a:active {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-decoration: none !important;
 }
 
 .card >p {
@@ -122,6 +123,10 @@ a:active {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.restrauntlist > a{
+    text-decoration: none;
 }
 
 .searchHeader{
@@ -308,6 +313,85 @@ body{
     display: flex;
     justify-content: center;
     margin-top: 30px;
+}
+
+.menu{
+    /* margin: 50px;
+    margin-left: 400px; */
+    font-family: system-ui;;
+}
+
+.menuContainer > h1 {
+    font-size: 28px !important;
+    font-weight: 800;
+    margin-top: 50px;
+}
+
+.menuContainer > h2 {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.menu > ul > li{
+    list-style-type: none;
+}
+
+.menu_Image{
+    height: 150px;
+    width: 150px;
+    border-radius: 20%;
+}
+
+.solid{
+    width: 1040px;
+}
+
+.menuRowName {
+    font-weight: 750;
+    font-size: 18px;
+    color: rgba(1, 4, 8, 0.75);
+}
+
+.menuRowPrice{
+    font-weight: bold;
+    margin-top: -10px;
+    text-decoration: line-through;
+    color: rgba(56, 57, 58, 0.75);
+}
+
+.menuRowFinalPrice{
+    font-weight: bold;
+    margin-top: -10px;
+}
+
+.menuRowRating{
+    font-weight: 500;
+    margin-top: -10px;
+    color: green;
+}
+
+.menuRowDesc{
+    font-weight: 500;
+    color: rgba(2, 6, 12, 0.75);
+}
+
+.menu_col2{
+    display: flex;
+    flex-direction: column
+}
+
+.menuButton {
+    width: fit-content;
+    margin-left: 45px;
+    margin-top: -20px;
+    background-color: white;
+    color: green;
+    font-weight: bold;
+    border: none;
+}
+
+.menu_col2 > p {
+    margin-left: 20px;
 }
 
 /* #container {

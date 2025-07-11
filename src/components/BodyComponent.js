@@ -1,4 +1,3 @@
-import { restrauntList } from "../Config";
 import { categoriesList } from "../Config";
 import RestrauntCard from "./RestrauntCard";
 import CategoriesCard from "./CategoriesCard";
@@ -6,6 +5,7 @@ import { FaSearch } from "react-icons/fa";
 import { useEffect, useLayoutEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 //import user from "./user.jpg";
+import { Link } from "react-router-dom";
 
 function filterData(searchText, restraunts) {
     const filterData = restraunts.filter((restraunt) => 
@@ -71,7 +71,10 @@ const BodyComponent = (props) => {
             <div className="restrauntlist">
                 {(filteredRestraunts?.length == 0)? <h1 className="text">Oops! No matches here. Ready to explore different flavors?!</h1>:
                 filteredRestraunts.map((restraunt) => {
-                    return <RestrauntCard cloudinaryImageId = {restraunt.info?.cloudinaryImageId} name={restraunt.info?.name} cuisines={"Asian, "+restraunt.info?.cuisines} deliveryTime={restraunt.info?.sla?.slaString} avgRating={restraunt.info?.avgRating} key={restraunt.info?.id}/>;
+                    return (
+                    <Link key={restraunt.info?.id} to={"/restaurant/"+restraunt.info?.id}>
+                         <RestrauntCard cloudinaryImageId = {restraunt.info?.cloudinaryImageId} name={restraunt.info?.name} cuisines={"Asian, "+restraunt.info?.cuisines} deliveryTime={restraunt.info?.sla?.slaString} avgRating={restraunt.info?.avgRating} />
+                    </Link>)
                     // return <RestrauntCard {...restraunt.info} deliveryTime={restraunt.info?.sla?.slaString} key={restraunt.info?.id}/>;
                 })}
                 {/* key={restraunt.data.id} */}
