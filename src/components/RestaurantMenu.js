@@ -33,7 +33,7 @@ const RestaurantMenu = () => {
 
     if(resInfo === null ) return <Shimmer/>
 
-    const {name, cuisines, costForTwoMessage} = resInfo?.cards[2]?.card?.card?.info;
+    const {name, cuisines, costForTwoMessage, avgRatingString, totalRatingsString, locality, sla} = resInfo?.cards[2]?.card?.card?.info;
 
     const {itemCards, title} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
     console.log(itemCards)
@@ -44,9 +44,22 @@ const RestaurantMenu = () => {
         <div className="menu">
             <Container className="menuContainer">
                 <h1>{name}</h1>
-                <p>{cuisines.join(", ")} - {costForTwoMessage}</p>
-                <h2>{title} ({itemCount})</h2>
-            </Container>
+                <Container className="menuDetails border rounded">
+                    <p>
+                        <span className="rating"><span className="star">✪</span> {avgRatingString}</span>
+                        <span className="rating"> ({totalRatingsString})</span>
+                        <span className="rating"> • {costForTwoMessage}</span>
+                    </p>
+                    <p className="cuisines">{cuisines.join(", ")}</p>
+                    <p><span className="rating">Outlet - </span>{locality}</p>
+                    <p className="rating">{sla?.slaString}</p>
+                </Container>   
+                <p className="designMenu">↫ Menu ↬</p>                             
+                <h2>Recommended ({itemCount})</h2>
+                {itemCount === 0? 
+                    (<p>Sorry, no items available.</p>):(<p></p>)
+                }
+            </Container>    
             <ul>
                 {itemCards?.map((item) => (
                     <li key={item.card?.info?.id}>

@@ -73,6 +73,7 @@ a:active {
     margin: 10px;
     padding: 10px;
     margin-top: 30px;
+    border: none;
 }
 
 .card >h2 {
@@ -330,6 +331,7 @@ body{
 .menuContainer > h2 {
     font-size: 20px;
     font-weight: 800;
+    margin-top: 40px;
 }
 
 .menu > ul > li{
@@ -340,6 +342,13 @@ body{
     height: 150px;
     width: 150px;
     border-radius: 20%;
+}
+
+.menuDetails{
+    width: 1050px;
+    margin-left: initial;
+    margin-top: 30px;
+    box-shadow: 1px 10px 5px 8px rgb(221, 231, 235);
 }
 
 .solid{
@@ -390,8 +399,32 @@ body{
     border: none;
 }
 
+.menuButton:hover {background-color: rgb(227, 224, 224); color: green;}
+
 .menu_col2 > p {
     margin-left: 20px;
+}
+
+.star{
+    color: green;
+    font-size: 25px;
+}
+
+.rating{
+    font-weight: bold;
+}
+
+.cuisines{
+    font-weight: bold;
+    text-decoration: underline;
+    color: rgb(255, 98, 0);
+}
+
+.designMenu{
+    margin-top: 60px;
+    margin-left: 500px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 /* #container {
