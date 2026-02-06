@@ -1,38 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import { Component } from "react"
+import React from "react"
+class Test extends React.Component{
+  constructor(props) {
+    super(props)
+    console.log("Class 3 constructor")
+  }
+  componentDidMount(){
+    console.log("class 3 component did mount")
+  }
 
-const Test = () => {
-
-    // const [names, setNames] = useState([]);
-    // const [selectedName, setSelectedName] = useState('');
-
-    // useEffect(()=>{
-    //  fetch("https://api.coinbase.com/v2/currencies")
-    //  .then(response => response.json())
-    //  .then(data => {
-    //   setNames(data.data)
-    //   console.log(data.data)
-    //  })
-    //  .catch(error => {
-    //   console.log('error', error)
-    //  });
-    // },[]);
-
-    // const handleChange = (e) =>{
-    //   setSelectedName(e.target.value);
-    // }
-
-  return (
-    <div>
-      <select id='name-select' value={selectedName} onChange={handleChange}>
-        <option value="">choose a name</option> 
-          {names.map(currency => (
-            <option key={currency.id} value={currency.id}>
-              {currency.name}
-            </option>
-          ))}  
-      </select>
-    </div>
-  )
+  render() {
+    console.log("class 3 render")
+    return(
+      <div></div>
+    )
+  }
 }
 
-export default Test
+export default Test;

@@ -29,7 +29,7 @@ const MenuCard = ({name, price, finalPrice, rating, ratingCount, description, me
                     <p>Customisable</p>
                 </Col>
             </Row>
-            <hr class="solid"></hr>
+            <hr className="solid"></hr>
         </Container>
     )
 }
