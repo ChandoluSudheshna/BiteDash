@@ -1,6 +1,15 @@
 import { MENU_IMG } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+    console.log(item)
+  };
+
   return (
     <div>
       <ul>
@@ -8,7 +17,7 @@ const ItemList = ({ items }) => {
           <li
             key={item?.card?.info?.id}
             className="p-4 border-b border-gray-200 flex items-start gap-4"
-          >            
+          >
             <div className="flex-1">
               <span className="block font-bold text-lg">
                 {item?.card?.info?.name}
@@ -26,12 +35,7 @@ const ItemList = ({ items }) => {
                   ★ {item?.card?.info?.ratings?.aggregatedRating?.rating}
                 </span>
                 <span className="ml-1 text-gray-600">
-                  (
-                  {
-                    item?.card?.info?.ratings?.aggregatedRating
-                      ?.ratingCountV2
-                  }
-                  )
+                  ({item?.card?.info?.ratings?.aggregatedRating?.ratingCountV2})
                 </span>
               </p>
 
@@ -40,14 +44,18 @@ const ItemList = ({ items }) => {
               </p>
             </div>
 
-            
             <div className="w-36 h-36 shrink-0 rounded-2xl overflow-hidden">
               <img
                 src={MENU_IMG + item?.card?.info?.imageId}
                 alt={item?.card?.info?.name}
                 className="w-full h-full object-cover"
               />
-              <button className="p-2 mx-16 bg-white text-green-800 shadow-lg absolute rounded-lg">Add +</button>
+              <button
+                className="p-2 mx-16 bg-white text-green-800 shadow-lg absolute rounded-lg"
+                onClick={() => handleAddItem(item)}
+              >
+                Add +
+              </button>
             </div>
           </li>
         ))}

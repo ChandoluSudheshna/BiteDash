@@ -4,6 +4,7 @@ import { FaCartPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const loggedInUser = () => {
   //API call to check user authentication
@@ -11,11 +12,12 @@ const loggedInUser = () => {
 };
 
 const HeaderComponent = ({ onSignInClick, user }) => {
-
   const onlineStatus = useOnlineStatus();
 
-  const {loggedInUser, test} = useContext(UserContext);
-  console.log(loggedInUser)
+  const { loggedInUser, test } = useContext(UserContext);
+  // console.log(loggedInUser)
+
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="header mt-3">
@@ -31,7 +33,7 @@ const HeaderComponent = ({ onSignInClick, user }) => {
           </li> */}
           <li>
             <Link to="/">Home</Link>
-          </li>          
+          </li>
           <li>
             <Link to="/about">About</Link>
           </li>
@@ -48,8 +50,11 @@ const HeaderComponent = ({ onSignInClick, user }) => {
       </div>
       <div className="nav-items">
         <ul>
-          <li className="icon">
-            <FaCartPlus fontSize="1.5em" />
+          <li className="icon flex">
+            <Link to="/cart" className="flex">
+              <FaCartPlus fontSize="1.5em" />
+              <span className="font-bold text-xl">{cartItems.length}</span>
+            </Link>
           </li>
           {/* {
                         isLoggedIn? <li><Button className="button" onClick={() => {setIsLoggedIn(false)}}>Sign out</Button></li> : 
@@ -58,7 +63,7 @@ const HeaderComponent = ({ onSignInClick, user }) => {
                             onSignInClick
                         }>Sign in</Button></li>
                     } */}
-          {user ? (            
+          {user ? (
             <li>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -73,10 +78,11 @@ const HeaderComponent = ({ onSignInClick, user }) => {
                   fill-rule="evenodd"
                   d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
                 />
-              </svg>              
-              <p className="m-2 font-bold">{test} - {loggedInUser}</p>
+              </svg>
+              <p className="m-2 font-bold">
+                {test} - {loggedInUser}
+              </p>
             </li>
-            
           ) : (
             <li>
               <Button className="button" onClick={onSignInClick}>
