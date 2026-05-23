@@ -1,4 +1,4 @@
-import { categoriesList } from "../Config";
+import { categoriesList } from "../config";
 import RestrauntCard, { withPromotedLabel } from "./RestrauntCard";
 import CategoriesCard from "./CategoriesCard";
 import { FaSearch } from "react-icons/fa";
